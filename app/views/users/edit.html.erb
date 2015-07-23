@@ -1,0 +1,24 @@
+<h1> EDIT EXISTING USER </h1>
+
+
+<%= form_for @user do |f| %>
+
+  User name <%= f.text_field :username %><br>
+  Email <%= f.text_field :email %><br>
+  Password <%= f.password_field :password %><br>
+  
+  
+<%= f.submit "Submit" %>
+
+<% end %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h3><%= pluralize(@user.errors.count, "error")%> stopped this information from being saved:</h3>
+
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>  
